@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_prestataire_list" model="ir.ui.view">
+            <field name="name">list: maintenances</field>
+            <field name="model">maintenance</field>
+            <field name="arch" type="xml">
+                <list string="maintenance Request" multi_edit="1" sample="1">
+                <field name="message_needaction" invisible="1"/>
+                <field name="name"/>
+                 <field name="maintenance_type"/>
+                <field name="request_date"/>
+                  <field name="priority"/>
+                <field name="owner_user_id" invisible="1"/>
+                <field name="user_id" invisible="1"/>
+                <field name="category_id"  invisible="1" readonly="1" groups="maintenance.group_equipment_manager"/>
+                <field name="stage_id"/>
+                <field name="company_id"  invisible="1" readonly="1" groups="base.group_multi_company"/>
+                <field name="activity_exception_decoration"  invisible="1" widget="activity_exception"/>
+            </list>
+            </field>
+        </record>
+
+        <record id="view_prestataire_form" model="ir.ui.view">
+            <field name="name">Form Maintenance</field>
+            <field name="model">maintenance</field>
+            <field name="arch" type="xml">
+<form string="Maintenance Request">
+          <h1 style="width:100%; margin-top:10px; height:50px; text-align:center; background:#0066ee; color:#fff">Demande de maintenance</h1>
+
+                <header>
+                    <button string="Cancel" name="archive_equipment_request" type="object" 
+invisible="archive == 'True'"/>
+                    <button string="Reopen Request" name="reset_equipment_request" type="object" 
+invisible="archive == 'False'"/>
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1'}" invisible="archive =='True'"/>
+                </header>
+                <sheet>
+                    <div invisible="archive == 'False'">
+                        <span class="badge badge-warning float-right">Canceled</span>
+                    </div>
+                    <div class="oe_right">
+                        <field name="kanban_state" class="oe_inline" widget="state_selection"/>
+                    </div>
+                    <h2 style="text-decoration:underline">Infos panne</h2>
+                    <group class="oe_title">
+                        <label for="name" string="Panne"/>
+                        <p>
+                            <field name="name" placeholder="e.g. Roues Crevés" style="width:350px"/>
+                        </p>
+                        <field name="description" placeholder="Internal Notes" style="width:350px"/>
+                    </group>
+                    <group style="width:50%;">
+                        <group>
+                            <field name="owner_user_id" string="Requested By" invisible="1"/>
+                            <field name="equipment_id" invisible="1" context="{'default_company_id':company_id, 'default_category_id':category_id}"/>
+                            
+                            <field name="category_id" groups="maintenance.group_equipment_manager" context="{'default_company_id':company_id}" 
+invisible="equipment_id == 'False'"/>
+                            <field name="request_date" readonly="False"/>
+
+                            <field name="done" invisible="1"/>
+                            <field name="archive" invisible="1"/>
+                            <field name="maintenance_type" widget="radio"/>
+                            <field name="priority" widget="priority"/>
+                            
+                            <h2 style="text-decoration:underline;">Infos vehicule</h2>
+                            <field name="vehicule" />
+                            <field name="immatricule" />
+                            <field name="photo" widget="image"/>
+                            
+
+  
+                        </group>
+                         
+                        <group style="width:40%; position: absolute; top: 10%; left: 60%;">
+                              <h2 style="text-decoration:underline;">Infos prestataire</h2>
+                              <field name="prestataire"/>
+                              <field name="prenomPrestataire"/>
+                              <field name="cinPrestataire"/>
+                              <field name="telPrestataire"/>
+                              <field name="photoPrestataire" widget="image"/>      
+                        </group>
+          
+                        <group invisible="1">
+                            <field name="maintenance_team_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="user_id" string="Responsible"/>
+                            <field name="schedule_date"/>
+                            <label for="duration"/>
+                            <div>
+                                <field name="duration" widget="float_time" class="oe_inline"/> <span class="ml8">hours</span>
+                            </div>
+                            <field name="priority" widget="priority"/>
+                            <field name="email_cc" string="Email cc" groups="base.group_no_one"/>
+                            <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="maintenance_action_window">
+            <field name="name">maintenances</field>
+            <field name="res_model">maintenance</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="Customized Project" id="Mini_Projet_Menu_Root" sequence="7" />
+
+        <!-- menu categories -->
+        <menuitem name="Maintenances" id="parc_maintenance_menu" parent="Mini_Projet_Menu_Root" action="maintenance_action_window" />
+
+    </data>
+</odoo>
+
+
+
+
+

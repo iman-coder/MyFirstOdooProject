@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_vehicule_list" model="ir.ui.view">
+            <field name="name">list: vehicules</field>
+            <field name="model">vehicule</field>
+            <field name="arch" type="xml">
+             <list string="Vehicle" decoration-warning="contract_renewal_due_soon and not contract_renewal_overdue" decoration-danger="contract_renewal_overdue" multi_edit="1" sample="1">
+                <field name="active" invisible="1"/>
+                   
+                    <field name="immatricule" readonly="1"/>
+                     <field name="model_id" readonly="1"/>
+                    <field name="acquisition_date" readonly="1"/>
+                    <field name="fuel_type" readonly="1"/>
+                    <field name="color" readonly="1"/>
+                    <field name="horsepower" readonly="1"/>
+                    <field name="type" readonly="1"/>
+                    <field name="etat" readonly="1"/>
+                    <field name="photo" readonly="1"/>
+                <field name="license_plate" readonly="1" invisible="1"/>
+                <field name="model_id" readonly="1" invisible="1"/>
+                <field name="manager_id" optional="hide" invisible="1"/>
+                <field name="driver_id" widget="many2one_avatar" invisible="1" readonly="1"/>
+                <field name="future_driver_id" widget="many2one_avatar" invisible="1" readonly="1"/>
+                <field name="log_drivers" invisible="1"/>
+                <field name="vin_sn" readonly="1" optional="hide" invisible="1"/>
+                <field name="co2" string="CO2 Emissions g/km" invisible="1" optional="hide" readonly="1"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" readonly="1"/>
+                <field name="state_id" widget="badge" readonly="1" optional="hide"/>
+                <field name="contract_renewal_due_soon" invisible="1"/>
+                <field name="contract_renewal_overdue" invisible="1"/>
+                <field name="contract_state" widget="badge" decoration-info="contract_state == 'open'" decoration-danger="contract_state == 'expired'" optional="hide"/>
+                <field name="activity_exception_decoration" widget="activity_exception"/>
+            </list>
+            </field>
+        </record>
+
+        <record id="view_vehicule_form" model="ir.ui.view">
+            <field name="name">Form: Vehicule</field>
+            <field name="model">vehicule</field>
+            <field name="arch" type="xml">
+               <form string="Véhicules" style="width:100%;height:100%; background: #f5f5f5">
+    <sheet>
+        <h1 style="width:100%; margin-top:10px; height:50px; text-align:center; background:#0066ee; color:#fff">Fiche véhicule</h1>
+
+        <group style="width:50%; float:left;">
+             <field name="immatricule" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+      <field name="acquisition_date" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+      <field name="model_id" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+      <field name="fuel_type" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+      <field name="color" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+      <field name="horsepower" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+      <field name="type" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+      <field name="etat" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+        </group>
+
+        <group style="width:40%; position: absolute; top: 20%; left: 60%;">
+            <field name="photo" widget="image" class="float-left oe-avatar" placeholder="" style="width:250px;height:150px;margin-left:10px; font-size:14px"/>
+        </group>
+    </sheet>
+               </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="vehicule_action_window">
+            <field name="name">Vehicules</field>
+            <field name="res_model">vehicule</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="Customized Project" id="Mini_Projet_Menu_Root" sequence="7" />
+
+        <!-- menu categories -->
+        <menuitem name="Vehicule" id="parc_vehicule_menu" parent="Mini_Projet_Menu_Root" action="vehicule_action_window"  />
+
+        <!-- actions -->
+        <!-- <menuitem name="Liste des vehicules" id="parc_vehicule_list" parent="parc_vehicule_menu"
+            action="vehicule_action_window" /> -->
+    </data>
+</odoo>
+

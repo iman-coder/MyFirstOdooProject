@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_mission_list" model="ir.ui.view">
+            <field name="name">list: missions</field>
+            <field name="model">mission</field>
+            <field name="arch" type="xml">
+                <list>
+                <field name="dateDepart" placeholder=""   />
+             <field name="dateArrive" placeholder=""   />
+            
+             <field name="villeDepart" placeholder=""   />
+             <field name="villeArrive" placeholder=""   />
+  
+             <field name="vehicule" placeholder=""   />
+             <field name="etatVehicule" placeholder=""   />
+
+             <field name="etat" placeholder=""   />
+             <field name="distance" placeholder=""   />
+             <field name="cout" placeholder=""   />
+             <field name="chauffeurEmail" placeholder=""  />
+
+              <field name="chauffeur" placeholder=""  />
+             
+             <field name="chauffeurPhoto"  placeholder=""  />
+
+
+                </list>
+            </field>
+        </record>
+
+        <record id="view_mission_form" model="ir.ui.view">
+            <field name="name">Form mission</field>
+            <field name="model">mission</field>
+            <field name="arch" type="xml">
+            <form string="Missions" style="width:100%;height:120%; background: #f5f5f5">
+       <sheet>
+        <h1 style="width:100%; ; height:50px; text-align:center; background:#0066ee; color:#fff">Affectation mission</h1>
+
+        <group style="width:50%; float:left;" >
+             <field name="dateDepart" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="dateArrive" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+            
+             <field name="villeDepart" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="villeArrive" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+  
+             <field name="vehicule" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="etatVehicule" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+
+             <field name="etat" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="distance" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>        
+             <field name="cout" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             
+
+        </group>
+        <group style="position:absolute; left:60%;width:40%">
+            <field name="chauffeur" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="chauffeurPrenom" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="chauffeurEmail" placeholder=""  />
+             <field name="etatChauffeur"   style="width:300px;height:100px !important;margin-left:10px; font-size:14px"/>             
+             <field name="chauffeurPhoto" widget="image"   style="width:300px;height:100px !important;margin-left:10px; font-size:14px"/>
+
+        </group>
+
+       
+    </sheet>
+</form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="mission_action_window">
+            <field name="name">missions</field>
+            <field name="res_model">mission</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem name="Customized Project" id="Mini_Projet_Menu_Root" sequence="7" />
+
+        <menuitem name="Missions" id="parc_mission_menu" parent="Mini_Projet_Menu_Root" action="mission_action_window" />
+
+        
+    </data>
+</odoo>

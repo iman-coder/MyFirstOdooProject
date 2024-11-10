@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_remplacement_list" model="ir.ui.view">
+            <field name="name">list: remplacements</field>
+            <field name="model">remplacement</field>
+            <field name="arch" type="xml">
+                <list>
+                <field name="reference" placeholder=""   />
+                <field name="sinistre" placeholder=""   />
+                <field name="dateDemande" placeholder=""   />
+                <field name="dateLivraison" placeholder=""   />
+               
+
+
+                </list>
+            </field>
+        </record>
+
+        <record id="view_remplacement_form" model="ir.ui.view">
+            <field name="name">Form remplacement</field>
+            <field name="model">remplacement</field>
+            <field name="arch" type="xml">
+            <form string="Remplacement" style="width:100%;height:120%; background: #f5f5f5">
+       <sheet>
+        <h1 style="width:100%; ; height:50px; text-align:center; background:#0066ee; color:#fff">Demande de remplacement</h1>
+
+        <group style="width:50%; float:left;" >
+             <field name="reference" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="sinistre" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="description" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="dateDemande" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="dateLivraison" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+            <h6 style="color: #0066ee; text-decoration:underline">Vehicule A remplacer</h6>
+          <field name="vehiculePanne" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+          <field name="immatricule" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+          <field name="photo" widget="image" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+
+             
+
+        </group>
+        <group style="position:absolute; left:50%;width:40%">
+                    <h6 style="color: #0066ee; text-decoration:underline">Vehicule A Livrer</h6>
+            <field name="vehiculeNew" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="immatriculeNew" placeholder=""  style="width:300px;height:35px;margin-left:10px; font-size:14px"/>
+             <field name="photoNew"  widget="image"   style="width:300px;height:100px !important;margin-left:10px; font-size:14px"/>             
+
+        </group>
+
+       
+    </sheet>
+</form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="remplacement_action_window">
+            <field name="name">remplacements</field>
+            <field name="res_model">remplacement</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem name="Customized Project" id="Mini_Projet_Menu_Root" sequence="7" />
+
+        <menuitem name="Remplacements" id="parc_remplacement_menu" parent="Mini_Projet_Menu_Root" action="remplacement_action_window" />
+
+        
+    </data>
+</odoo>
