@@ -73,7 +73,7 @@ addons/
     │   ├── product.py        # Product model (linked to the Odoo product module)
     │   ├── employee.py       # Employee model (extends HR employee)
     │   ├── vehicle.py        # Vehicle model (extends Fleet vehicle)
-    │   └── cost_aggregation.py  # Helper for calculating aggregated costs
+    │   └── cost_aggregation.py  # Helper for calculating aggregated costs (might get added later)
     ├── security/
     │   ├── ir.model.access.csv
     ├── static/
@@ -84,7 +84,7 @@ addons/
     │   ├── product_view.xml     # Views for products
     │   ├── employee_view.xml    # Views for employees
     │   ├── vehicle_view.xml     # Views for vehicles
-    │   └── dashboard_view.xml   # Dashboard for aggregated costs
+    │   └── dashboard_view.xml   # Dashboard for aggregated costs (might get added later)
     ├── __init__.py
     ├── __manifest__.py
 ```
