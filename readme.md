@@ -47,20 +47,20 @@ Ensure that you have Odoo installed on your system. This module requires the fol
 ## usage:
 
 ### Step 1: Create a Project
-    - Navigate to the Projects app.
-    - Click Create and enter details for the construction project.
-    - Save the project.
+- Navigate to the Projects app.
+- Click Create and enter details for the construction project.
+- Save the project.
 ### Step 2: Add Resources to the Project
 - **Products**:
-    Add construction materials with their daily costs.
-    Navigate to the "Products" tab within the project.
+  - Add construction materials with their daily costs.
+  - Navigate to the "Products" tab within the project.
 - **Employees**:
     Assign employees to the project and define their daily/hourly rates and roles.
 - **Vehicles**:
     Assign vehicles to the project and define their daily costs.
 ### Step 3: Monitor Costs
-    - View the total project cost in real-time from the project form view.
-    - Use the project dashboard to analyze and update resource usage and associated expenses.
+- View the total project cost in real-time from the project form view.
+- Use the project dashboard to analyze and update resource usage and associated expenses.
 
 ## Folder Structure
 
