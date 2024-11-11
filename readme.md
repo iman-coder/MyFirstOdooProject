@@ -14,6 +14,8 @@ The **Construction Management Module** is a custom Odoo module designed to manag
 - **Cost Tracking**:
   - Generate real-time updates of total project costs for materials, employees, and vehicles.
   - Maintain an accurate overview of construction expenses.
+- **How is it suposed to work**:
+![alt text](image-1.png)
 
 ---
 
@@ -49,12 +51,12 @@ Ensure that you have Odoo installed on your system. This module requires the fol
     - Click Create and enter details for the construction project.
     - Save the project.
 ### Step 2: Add Resources to the Project
-    - Products:
+- **Products**:
     Add construction materials with their daily costs.
     Navigate to the "Products" tab within the project.
-    - Employees:
+- **Employees**:
     Assign employees to the project and define their daily/hourly rates and roles.
-    - Vehicles:
+- **Vehicles**:
     Assign vehicles to the project and define their daily costs.
 ### Step 3: Monitor Costs
     - View the total project cost in real-time from the project form view.
@@ -86,3 +88,8 @@ addons/
     ├── __init__.py
     ├── __manifest__.py
 ```
+## The UML of the project:
+### Use case diagram:
+![alt text](image-2.png)
+### Class diagram:
+![alt text](image.png)
