@@ -1,5 +1,25 @@
 from odoo import models, fields
 
+class Project(models.Model):
+    _name = 'construction.project'
+    _description = 'Construction Project'
+
+    name = fields.Char(string="Project Name", required=True)
+    start_date = fields.Date(string="Start Date")
+    end_date = fields.Date(string="End Date")
+    employee_ids = fields.Many2many('hr.employee', string="Employees")
+    product_ids = fields.Many2many('product.product', string="Products")
+    vehicle_ids = fields.Many2many('fleet.vehicle', string="Vehicles")
+    total_cost = fields.Float(string="Total Cost", compute='_compute_total_cost')
+
+    def _compute_total_cost(self):
+        for record in self:
+            employee_cost = sum(e.hourly_rate for e in record.employee_ids)
+            product_cost = sum(p.standard_price for p in record.product_ids)
+            vehicle_cost = sum(v.daily_cost for v in record.vehicle_ids)
+            record.total_cost = employee_cost + product_cost + vehicle_cost
+
+'''
 class ConstructionProject(models.Model):
     _inherit = 'project.project'
 
@@ -14,3 +34,4 @@ class ConstructionProject(models.Model):
             employee_cost = sum(emp.hourly_rate * 8 for emp in project.employee_ids)  # Assuming 8 hours/day
             vehicle_cost = sum(vehicle.daily_cost for vehicle in project.vehicle_ids)
             project.total_cost = product_cost + employee_cost + vehicle_cost
+'''

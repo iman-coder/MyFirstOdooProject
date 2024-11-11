@@ -2,7 +2,8 @@ from odoo import api, fields, models
 
 class Vehicle(models.Model):
     _inherit = 'fleet.vehicle'  # Inherit the vehicle model
-
+    
+    immatricule = fields.Char('Immatricule ')
     daily_cost = fields.Float(string='Daily Cost')
     usage_date = fields.Date(string='Usage Date')
     project_id = fields.Many2one('project.project', string='Assigned Project')

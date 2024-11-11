@@ -1,0 +1,31 @@
+<odoo>
+    <!-- Form View -->
+    <record id="view_product_form_inherit" model="ir.ui.view">
+        <field name="name">product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="after">
+                <group string="Construction Project Details">
+                    <field name="quantity_used" />
+                    <field name="usage_date" />
+                    <field name="project_id" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_product_tree_inherit" model="ir.ui.view">
+        <field name="name">product.product.tree.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="quantity_used" />
+                <field name="usage_date" />
+                <field name="project_id" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
