@@ -1,0 +1,3 @@
+[options]
+admin_passwd = "gets generated automatically from the admin"
+addons_path = /mnt/extra-addons

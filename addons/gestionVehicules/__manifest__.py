@@ -1,5 +1,5 @@
 {
-    'name': '',
+    'name': 'Gestion de Projets de Construction',
     'version': '1.0.0',
     'sequence': -100,
     'author': '',

@@ -1,7 +1,8 @@
 from odoo import api, fields, models
 
 class Vehicle(models.Model):
-    _inherit = 'fleet.vehicle'  # Inherit the vehicle model
+    _name = "vehicule"
+    _inherit = ['fleet.vehicle']  # Inherit the vehicle model
     
     immatricule = fields.Char('Immatricule ')
     daily_cost = fields.Float(string='Daily Cost')

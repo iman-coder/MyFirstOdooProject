@@ -30,7 +30,7 @@ Ensure that you have Odoo installed on your system. This module requires the fol
 - `account`: For cost calculations and reporting.
 
 ### Steps
-1. Update your Odoo configuration file (`odoo.conf`) to include the path to the `addons` folder where you cloned the repository.
+1. Check and update your Odoo configuration file (`odoo.conf`) to include the path to the `addons` folder where you cloned the repository and the other instructions on (`odoo.conf.txt`).
 2. Restart your Odoo server to load the new module.
 
    If using Docker:

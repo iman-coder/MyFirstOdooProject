@@ -7,3 +7,7 @@
 #from . import maintenance
 #from . import contrat
 #from . import remplacement
+from . import employee
+from . import product
+from . import project
+from . import vehicule
