@@ -7,7 +7,15 @@
     'category': 'Parc automobile',
     'summary': 'Gestion des vehicules de l entreprise INSEA ....',
     'description': 'Projet qui a pour but de digitaliser le proceessus d affectation des missions pour les chauffeurs et vehcules aussi pour l elaboration des contrat entre l entreprise INSEA et ses prestattaires qui geres tout ce qui est opérations de maintenances',
-    'depends': ['base','hr','hr_contract','fleet','maintenance'],
+    'depends': [
+        'base',       # Core Odoo
+        'hr',         # Employee management
+        'hr_contract',# Employee contracts
+        'fleet',      # Vehicle management
+        'purchase',   # Material purchases
+        'project',    # Project management
+        'account',    # Cost calculations and reporting
+    ],
     'data': [
         'views/employee_view.xml',
         'views/vehicule_view.xml',

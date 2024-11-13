@@ -5,4 +5,4 @@ class Product(models.Model):
 
     quantity_used = fields.Integer(string='Quantity Used')
     usage_date = fields.Date(string='Usage Date')
-    project_id = fields.Many2one('project.project', string='Associated Project')
+    project_id = fields.Many2one('construction.project', string='Associated Project')

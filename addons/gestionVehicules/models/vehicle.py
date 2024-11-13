@@ -1,13 +1,12 @@
 from odoo import api, fields, models
 
 class Vehicle(models.Model):
-    _name = "vehicule"
     _inherit = ['fleet.vehicle']  # Inherit the vehicle model
     
     immatricule = fields.Char('Immatricule ')
     daily_cost = fields.Float(string='Daily Cost')
     usage_date = fields.Date(string='Usage Date')
-    project_id = fields.Many2one('project.project', string='Assigned Project')
+    project_id = fields.Many2one('construction.project', string='Assigned Project')
 '''
 class vehicule(models.Model):
     _name = "vehicule"
