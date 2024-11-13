@@ -10,4 +10,4 @@
 from . import employee
 from . import product
 from . import project
-from . import vehicule
+from . import vehicle
