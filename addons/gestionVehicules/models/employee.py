@@ -6,21 +6,29 @@ class Employee(models.Model):
     _inherit = ['hr.employee']
     child_ids = fields.Many2many('hr.employee', 'parent_id', string='Direct subordinates')
     category_ids = fields.Many2many('hr.employee.category', 'employee_category_rel', 'category_id', groups="hr.group_hr_manager", string='Tags')
-
+    x_project_ids = fields.Many2many(
+        'construction.project',
+        'employee_project',
+        'employee_id',
+        'project_id',
+        string='Projects',
+        help='Projects associated with this employee'
+    )
     # Custom fields
-    cin = fields.Char(string="CIN", required=True)
-    prenom = fields.Char(string="Prenom", required=True)
-    age = fields.Integer(string="Âge", compute='_compute_age', store=True)
-    photo = fields.Binary(string="Photo", attachment=True)
-    etat = fields.Selection([('Disponible', 'Disponible'), ('En mission', 'En mission'), ('En congé', 'En congé')])
-    typePermis = fields.Selection([('A', 'A'), ('A1', 'A1'), ('B', 'B'), ('C', 'C'), ('C1', 'C1')],
-                                  string="Type de Permis")
-
-    dateEmbauche = fields.Date(string="Date d'embauche", required=False)
-    anciennete = fields.Integer(string="Ancienneté", compute='_compute_anciennete', store=True)
-
-    # New field for Cout J/H (Cost per Man-Day)
-    cout_j_h = fields.Float(string="Cout J/H", help="Cost per Man-Day")
+    cin = fields.Char(string="CIN")
+    prenom = fields.Char(string="Prénom")
+    typePermis = fields.Selection(
+        [('A', 'Type A'), ('B', 'Type B'), ('C', 'Type C')],
+        string="Type de Permis"
+    )
+    etat = fields.Selection(
+        [('active', 'Active'), ('inactive', 'Inactive')],
+        string="État"
+    )
+    dateEmbauche = fields.Date(string="Date d'Embauche")
+    age = fields.Integer(string="Âge", compute="_compute_age")
+    anciennete = fields.Integer(string="Ancienneté", compute="_compute_anciennete")
+    x_coutjh = fields.Float(string="Coût Journalier/Horaire")
 
     # Computed field for ancienneté (years of service)
     @api.depends('dateEmbauche')
@@ -48,4 +56,4 @@ class Employee(models.Model):
     def _compute_cout_j_h(self):
         for record in self:
         # Logic to calculate Cout J/H, e.g.:
-            record.cout_j_h = record.salary / record.working_hours
+            record.x_coutjh = record.salary / record.working_hours
