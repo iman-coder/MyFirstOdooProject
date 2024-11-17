@@ -1,0 +1,30 @@
+<odoo>
+    <!-- Form View for Employee-Project -->
+    <record id="view_employee_project_form" model="ir.ui.view">
+        <field name="name">employee.project.form</field>
+        <field name="model">employee.project</field>
+        <field name="arch" type="xml">
+            <form string="Employee Project Association">
+                <sheet>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="project_id"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Employee-Project (Only Form View) -->
+    <record id="action_employee_project" model="ir.actions.act_window">
+        <field name="name">Employee Projects</field>
+        <field name="res_model">employee.project</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <!-- Menu Item for Employee-Project -->
+    <menuitem id="menu_employee_project" name="Employee Projects"
+              parent="menu_construction_management"
+              action="action_employee_project" sequence="3"/>
+</odoo>
