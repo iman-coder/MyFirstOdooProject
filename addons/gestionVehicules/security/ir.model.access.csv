@@ -1,2 +1,3 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_project_manager,access_project_manager,model_project_project,base.group_user,1,1,1,1
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_employee","access_employee","model_employee","base.group_user","1","1","1","1"
+"access_vehicule","access_vehicule","model_vehicule","base.group_user","1","1","1","1"
