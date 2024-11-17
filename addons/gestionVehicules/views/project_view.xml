@@ -1,63 +1,52 @@
 <odoo>
-    <!-- Tree View -->
-    <record id="view_construction_project_tree" model="ir.ui.view">
-        <field name="name">construction.project.tree</field>
-        <field name="model">construction.project</field>
-        <field name="arch" type="xml">
-            <tree string="Construction Projects">
-                <field name="name" />
-                <field name="start_date" />
-                <field name="end_date" />
-                <field name="total_cost" />
-            </tree>
-        </field>
-    </record>
+    <data>
+        <!-- Form View -->
+        <record id="view_construction_project_form" model="ir.ui.view">
+            <field name="name">construction.project.form</field>
+            <field name="model">construction.project</field>
+            <field name="type">form</field> <!-- Changed type to 'form' -->
+            <field name="arch" type="xml">
+                <form string="Construction Project">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="start_date" />
+                            <field name="end_date" />
+                        </group>
+                        <notebook>
+                            <page string="Employees">
+                                <field name="employee_ids" widget="many2many_tags" />
+                            </page>
+                            <page string="Products">
+                                <field name="product_ids" widget="many2many_tags" />
+                            </page>
+                            <page string="Vehicles">
+                                <field name="vehicle_ids" widget="many2many_tags" />
+                            </page>
+                            <page string="Total Cost">
+                                <field name="total_cost" readonly="1" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <!-- Form View -->
-    <record id="view_construction_project_form" model="ir.ui.view">
-        <field name="name">construction.project.form</field>
-        <field name="model">construction.project</field>
-        <field name="arch" type="xml">
-            <form string="Construction Project">
-                <sheet>
-                    <group>
-                        <field name="name" />
-                        <field name="start_date" />
-                        <field name="end_date" />
-                    </group>
-                    <notebook>
-                        <page string="Employees">
-                            <field name="employee_ids" widget="many2many_tags" />
-                        </page>
-                        <page string="Products">
-                            <field name="product_ids" widget="many2many_tags" />
-                        </page>
-                        <page string="Vehicles">
-                            <field name="vehicle_ids" widget="many2many_tags" />
-                        </page>
-                        <page string="Total Cost">
-                            <field name="total_cost" readonly="1" />
-                        </page>
-                    </notebook>
-                </sheet>
-            </form>
-        </field>
-    </record>
+        <!-- Action -->
+        <record id="action_construction_project" model="ir.actions.act_window">
+            <field name="name">Construction Projects</field>
+            <field name="res_model">construction.project</field>
+            <field name="view_mode">form</field> <!-- Changed view_mode to 'form' only -->
+            <field name="help" type="html">
+                <p>
+                    Manage your construction projects, including employees, products, and vehicles.
+                </p>
+            </field>
+        </record>
 
-    <!-- Action -->
-    <record id="action_construction_project" model="ir.actions.act_window">
-        <field name="name">Construction Projects</field>
-        <field name="res_model">construction.project</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p>
-                Manage your construction projects, including employees, products, and vehicles.
-            </p>
-        </field>
-    </record>
-
-    <!-- Menuitem -->
-    <menuitem id="menu_construction_management" name="Construction Management" sequence="1" />
-    <menuitem id="menu_construction_project" name="Projects" parent="menu_construction_management"
-              action="action_construction_project" sequence="2" />
+        <!-- Menu Items -->
+        <menuitem id="menu_construction_management" name="Construction Management" sequence="1" />
+        <menuitem id="menu_construction_project" name="Projects" parent="menu_construction_management"
+                  action="action_construction_project" sequence="2" />
+    </data>
 </odoo>
