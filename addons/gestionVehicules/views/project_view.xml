@@ -8,11 +8,32 @@
             <field name="arch" type="xml">
                 <form string="Construction Project">
                     <sheet>
+                        <group string="Employees">
+                           <field name="employee_ids" widget="many2many_tags"/>
+                        </group>
                         <group>
                             <field name="name" />
                             <field name="start_date" />
                             <field name="end_date" />
                         </group>
+                        <notebook>
+                            <page string="Exploitation">
+                                <field name="exploitation_ids">
+                                    <tree>
+                                        <field name="x_product_id"/>
+                                        <field name="x_date"/>
+                                        <field name="x_achat"/>
+                                        <field name="x_quantite"/>
+                                        <field name="x_prix_unitaire"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <notebook>
+                            <page string="Missions">
+                                <field name="mission_ids" widget="one2many_list" context="{'default_project_id': some_value}" />
+                            </page>
+                        </notebook>
                         <notebook>
                             <page string="Employees">
                                 <field name="employee_ids" widget="many2many_tags" />
@@ -45,6 +66,7 @@
         </record>
 
         <!-- Menu Items -->
+        <menuitem id="menu_employee_project" name="Employee Projects" parent="menu_construction_management" sequence="3"/>
         <menuitem id="menu_construction_management" name="Construction Management" sequence="1" />
         <menuitem id="menu_construction_project" name="Projects" parent="menu_construction_management"
                   action="action_construction_project" sequence="2" />
