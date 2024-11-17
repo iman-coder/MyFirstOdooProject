@@ -2,21 +2,21 @@
 <odoo>
     <data>
         <!-- List View -->
-        <record id="view_employee_list" model="ir.ui.view">
-            <field name="name">list: employees</field>
-            <field name="model">employee</field>
+        <record id="view_employee_form_inherit" model="ir.ui.view">
+            <field name="name">employee.form.inherit</field>
+            <field name="model">hr.employee</field>
             <field name="arch" type="xml">
-                <list>
-                    <field name="cin" />
+                <form string="Employee">
+                   <sheet>
                     <field name="name" />
-                    <field name="prenom" />
                     <field name="birthday" />
-                    <field name="age" />
-                    <field name="dateEmbauche" />
-                    <field name="anciennete" />
                     <!-- Add the Cout J/H field to the list view -->
-                    <field name="cout_j_h" />
-                </list>
+                    <field name="x_coutjh" />
+                    <group string="Projects">
+                    <field name="x_project_ids" widget="many2many_tags"/>
+                    </group>
+                   </sheet>
+                </form>
             </field>
         </record>
 
@@ -45,12 +45,10 @@
                             <field name="anciennete" style="width:350px;height:35px;margin-left:10px; font-size:14px"/>
                             
                             <!-- Add the Cout J/H field to the form view -->
-                            <field name="cout_j_h" style="width:350px;height:35px;margin-left:10px; font-size:14px"/>
+                            <field name="x_coutjh" style="width:350px;height:35px;margin-left:10px; font-size:14px"/>
                         </group>
                         
-                        <group style="width:20%; position: absolute; top: 30%; left: 60%;">
-                            <field name="photo" widget="image" class="float-left oe-avatar" style="width:250px;height:150px;margin-left:10px; font-size:14px"/>
-                        </group>
+
                     </sheet>
                 </form>
             </field>
@@ -77,6 +75,7 @@
 
         <!-- Top Menu Item -->
         <menuitem name="Customized Project" id="Mini_Projet_Menu_Root" sequence="8" />
+        <menuitem id="menu_employee_project" name="Employee Projects" parent="menu_construction_management" sequence="3"/>
 
         <!-- Menu Categories -->
         <menuitem name="Employees" id="parc_employee_menu" parent="Mini_Projet_Menu_Root" action="employee_action_window" />
