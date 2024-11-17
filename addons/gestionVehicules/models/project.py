@@ -7,10 +7,23 @@ class Project(models.Model):
     name = fields.Char(string="Project Name", required=True)
     start_date = fields.Date(string="Start Date")
     end_date = fields.Date(string="End Date")
+    mission_ids = fields.One2many('construction.mission', 'project_id', string="Missions")
     employee_ids = fields.Many2many('hr.employee', string="Employees")
     product_ids = fields.Many2many('product.product', string="Products")
     vehicle_ids = fields.Many2many('fleet.vehicle', string="Vehicles")
     total_cost = fields.Float(string="Total Cost", compute='_compute_total_cost')
+    active_id = fields.Many2one('some.model', string='Active')
+    some_value = fields.Char("Some Value")
+    exploitation_ids = fields.One2many('construction.exploitation', 'project_id', string='Exploitation Records')
+
+    employee_ids = fields.Many2many(
+        'hr.employee',
+        'employee_project',
+        'project_id',
+        'employee_id',
+        string='Employees',
+        help='Employees associated with this project'
+    )
 
     def _compute_total_cost(self):
        for record in self:
