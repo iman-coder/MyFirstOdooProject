@@ -13,7 +13,7 @@ class Project(models.Model):
     total_cost = fields.Float(string="Total Cost", compute='_compute_total_cost')
 
     def _compute_total_cost(self):
-        for record in self:
+       for record in self:
             employee_cost = sum(e.hourly_rate for e in record.employee_ids)
             product_cost = sum(p.standard_price for p in record.product_ids)
             vehicle_cost = sum(v.daily_cost for v in record.vehicle_ids)
