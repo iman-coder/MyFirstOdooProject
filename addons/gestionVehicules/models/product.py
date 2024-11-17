@@ -5,4 +5,4 @@ class Product(models.Model):
 
     quantity_used = fields.Integer(string='Quantity Used')  # New field for quantity used
     usage_date = fields.Date(string='Usage Date')  # New field for usage date
-    project_id = fields.Many2one('construction.project', string='Associated Project')  # Field to link to construction.project
+    x_project_id = fields.Many2one('construction.project', string='Associated Project')  # Field to link to construction.project
