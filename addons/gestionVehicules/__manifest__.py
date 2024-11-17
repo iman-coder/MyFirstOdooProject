@@ -21,6 +21,9 @@
         'views/vehicule_view.xml',
         'views/project_view.xml',
         'views/product_view.xml',
+        'views/mission_view.xml',
+        'views/exploitation_view.xml',
+        'views/employee_project_view.xml',
         'security/ir.model.access.csv',
         
     ],
