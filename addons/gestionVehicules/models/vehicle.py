@@ -10,6 +10,5 @@ class vehicule(models.Model):
     immatricule = fields.Char('Immatricule ')
     type= fields.Selection([('Voiture','Voiture'),('Moto','Moto'),('Camion','Camion'),('Tracteur','Tracteur'),('Velo','Velo')])
     etat= fields.Selection([('Disponible','Disponible'),('En mission','En mission'),('En reparation','En reparation'),('En panne','En panne')])
-    photo = fields.Binary(string="Photo", attachment=True)
-
+    x_mission_ids = fields.One2many('construction.mission', 'vehicle_id', string="Missions")
     
