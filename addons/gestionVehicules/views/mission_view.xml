@@ -1,0 +1,30 @@
+<odoo>
+    <!-- Form View for Mission -->
+    <record id="view_mission_form" model="ir.ui.view">
+        <field name="name">mission.form</field>
+        <field name="model">construction.mission</field>
+        <field name="arch" type="xml">
+            <form string="Mission">
+                <sheet>
+                    <group>
+                        <field name="project_id"/>
+                        <field name="vehicle_id"/>
+                        <field name="date"/>
+                        <field name="cost"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Mission -->
+    <record id="action_mission" model="ir.actions.act_window">
+        <field name="name">Missions</field>
+        <field name="res_model">construction.mission</field>
+        <field name="view_mode">form</field> <!-- Changed view_mode to form -->
+    </record>
+
+    <!-- Menu Item for Mission -->
+    <menuitem id="menu_mission" name="Missions" parent="menu_construction_management"
+              action="action_mission" sequence="4"/>
+</odoo>
