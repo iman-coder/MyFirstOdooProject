@@ -69,24 +69,28 @@ addons/
 └── constructionManagement/
     ├── models/
     │   ├── __init__.py
-    │   ├── project.py        # Project model
-    │   ├── product.py        # Product model (linked to the Odoo product module)
-    │   ├── employee.py       # Employee model (extends HR employee)
-    │   ├── vehicle.py        # Vehicle model (extends Fleet vehicle)
-    │   └── cost_aggregation.py  # Helper for calculating aggregated costs (might get added later)
+    │   ├── employee_project.py
+    │   ├── exploitation.py
+    │   ├── mission.py
+    │   ├── project.py
+    │   ├── product.py
+    │   ├── employee.py
+    │   ├── vehicle.py
+    ├── views/
+    │   ├── employee_project_view.xml
+    │   ├── exploitation_view.xml
+    │   ├── mission_view.xml
+    │   ├── project_view.xml
+    │   ├── product_view.xml
+    │   ├── employee_view.xml
+    │   ├── vehicle_view.xml
     ├── security/
     │   ├── ir.model.access.csv
     ├── static/
     │   └── description/
     │       ├── icon.png
-    ├── views/
-    │   ├── project_view.xml     # Views for projects
-    │   ├── product_view.xml     # Views for products
-    │   ├── employee_view.xml    # Views for employees
-    │   ├── vehicle_view.xml     # Views for vehicles
-    │   └── dashboard_view.xml   # Dashboard for aggregated costs (might get added later)
-    ├── __init__.py
     ├── __manifest__.py
+    └── __init__.py
 ```
 ## The UML of the project:
 ### Use case diagram:
