@@ -1,3 +1,5 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 "access_employee","access_employee","model_employee","base.group_user","1","1","1","1"
 "access_vehicule","access_vehicule","model_vehicule","base.group_user","1","1","1","1"
+access_construction_mission_user,construction.mission user,model_construction_mission,base.group_user,1,1,1,1
+access_employee_project_user,employee.project user,model_employee_project,base.group_user,1,1,1,1
