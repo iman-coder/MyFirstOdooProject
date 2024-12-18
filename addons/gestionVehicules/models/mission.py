@@ -9,4 +9,3 @@ class Mission(models.Model):
     date = fields.Date(string="Mission Date", required=True)
     cost = fields.Float(string="Cost", required=True)
 
-    # Optionally, you can compute or add other methods
