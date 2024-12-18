@@ -2,7 +2,7 @@
     'name': 'Gestion de Projets de Construction',
     'version': '1.0.0',
     'sequence': -100,
-    'author': '',
+    'author': 'HASNAOUI Wafae  et AIHI Imane',
     'website': '',
     'category': 'Parc automobile',
     'summary': 'Gestion des vehicules de l entreprise INSEA ....',
