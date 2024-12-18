@@ -62,7 +62,7 @@
         <menuitem name="Customized Project" id="Mini_Projet_Menu_Root" sequence="7" />
 
         <!-- Menu Categories -->
-        <menuitem name="Vehicule" id="parc_vehicule_menu" parent="Mini_Projet_Menu_Root" action="vehicule_action_window" />
+        <menuitem name="Vehicule" id="parc_vehicule_menu" parent="menu_construction_management" action="vehicule_action_window" />
 
     </data>
 </odoo>
