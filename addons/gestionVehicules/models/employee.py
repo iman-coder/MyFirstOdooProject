@@ -54,6 +54,4 @@ class Employee(models.Model):
     
     @api.depends('salary', 'working_hours')
     def _compute_cout_j_h(self):
-        for record in self:
-        # Logic to calculate Cout J/H, e.g.:
             record.x_coutjh = record.salary / record.working_hours
