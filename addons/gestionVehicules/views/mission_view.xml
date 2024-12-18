@@ -21,10 +21,9 @@
     <record id="action_mission" model="ir.actions.act_window">
         <field name="name">Missions</field>
         <field name="res_model">construction.mission</field>
-        <field name="view_mode">form</field> <!-- Changed view_mode to form -->
+        <field name="view_mode">list,form</field> <!-- Changed view_mode to form -->
     </record>
 
     <!-- Menu Item for Mission -->
-    <menuitem id="menu_mission" name="Missions" parent="menu_construction_management"
-              action="action_mission" sequence="4"/>
+    <menuitem id="menu_mission" name="Missions" parent="menu_construction_management" action="action_mission"/>
 </odoo>
