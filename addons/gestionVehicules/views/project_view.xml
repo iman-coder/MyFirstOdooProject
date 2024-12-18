@@ -57,7 +57,7 @@
         <record id="action_construction_project" model="ir.actions.act_window">
             <field name="name">Construction Projects</field>
             <field name="res_model">construction.project</field>
-            <field name="view_mode">form</field> <!-- Changed view_mode to 'form' only -->
+            <field name="view_mode">list,form</field> <!-- Changed view_mode to 'form' only -->
             <field name="help" type="html">
                 <p>
                     Manage your construction projects, including employees, products, and vehicles.
