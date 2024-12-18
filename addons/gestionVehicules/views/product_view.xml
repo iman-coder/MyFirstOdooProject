@@ -1,4 +1,5 @@
 <odoo>
+<data>
 <record id="view_product_form_inherit" model="ir.ui.view">
      <field name="name">product.product.form</field>
      <field name="model">product.product</field>
@@ -14,7 +15,15 @@
          </form>
      </field>
 </record>
+<record id="produit_action" model="ir.actions.act_window">
+    <field name="name">Products</field>
+    <field name="res_model">product.product</field>
+    <field name="view_mode">list,form</field>
+    <field name="context">{}</field>
+</record>
 
+<menuitem name="Product" id="produit_menu" parent="menu_construction_management" action="produit_action" />
+</data>
 
     <!-- Tree View -->
     <!--<record id="view_product_tree_inherit" model="ir.ui.view">
